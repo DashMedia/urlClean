@@ -11,7 +11,7 @@
  * 
  * AUTHOR: Jason Carney, DashMedia.com.au
  */
-
+$settings = array();
 if(isset($input) && !is_null($input)){
 //options included, execute as output modifier
 	if(isset($options) && !is_null($options)){
@@ -32,7 +32,6 @@ if(isset($input) && !is_null($input)){
 		}
 	}
 }
-
 //remove any 'blank' settings
 foreach ($settings as $key => $value) {
 	if(is_null($value) || $value == ''){
@@ -51,10 +50,10 @@ if(!isset($settings['options']) || is_null($settings['options']) || $settings['o
 
 
 //check if we have an integer value to make into a modx url
-if(is_numeric($url)){
-	$url = (float)$url;
-	if($url == intval($url)){
-		return $modx->makeUrl($url, '', '', $settings['options']);
+if(is_numeric($settings['url'])){
+	$settings['url'] = (float)$settings['url'];
+	if($settings['url'] == intval($settings['url'])){
+		return $modx->makeUrl($settings['url'], '', '', $settings['options']);
 	}
 }
 

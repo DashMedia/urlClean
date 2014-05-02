@@ -1,2 +1,5 @@
+==urlClean 1.0.1-pl==
+-output modifier bug fix
+
 ==urlClean 1.0.0-pl==
 -inital release
