@@ -71,19 +71,19 @@ if(is_array($url)){
 
 	//regex check if there are any domain names in the path variable
 	$regexHost = '';
-  	$reString='^[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})';	# Fully Qualified Domain Name 1
+  	$reString='^(\/\/)*[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})';	# Fully Qualified Domain Name 1
   	if(preg_match_all("/".$reString."/i", $path, $matches))
   	{
   		$regexHost=$matches[1][0];
   	}
+
 	if($host === '' && $regexHost !== ''){
 	//compatability issue, if url starts with '//' or no host was detected, but path contains a FQDN
 		$path = preg_replace('([\s\S]*'.$regexHost.')|()/i','', $path);
 		$host = $regexHost;
-
-	  	if($scheme === ''){
-	  		$scheme = '//';
-	  	}
+	}
+	if($host !== '' && $scheme === ''){
+		$scheme = '//';
 	} else {
 		if($scheme !== ''){
 			$scheme .= '://';
