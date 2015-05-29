@@ -1,16 +1,28 @@
 <?php
 /**
- * urlClean, use as an output modifier on urls to force them to validate, also useable on document ID's to create links to them.
+ * @name urlClean
+ * @description urlClean, use as an output modifier on urls to force them to validate, also useable on document ID's to create links to them.
  * accepts option value equal to the makeURL scheme parameter when used on document ID's instead of full urls
- * 
- * eg:
- * url: youtube.com/test?q=this and that -> //youtube.com/test?this%20and%20that
- * url: /test relative?var=with, params -> /test%20relative?var=with%2C%20params
- * url: 2 -> /alias-to-your-page
- * [[+id:urlClean=`full`]] -> http://your-site.com/alias-to-document
- * 
- * AUTHOR: Jason Carney, DashMedia.com.au
+ *
+ * USAGE
+ *
+ *  [[*myTv:urlClean]]
+ *  [[urlClean? &url=`http://example.com?q=this is a test`]]
+ *
+ *
+ * Variables
+ * ---------
+ * @var $modx modX
+ * @var $scriptProperties array
+ *
+ * @package urlclean
  */
+// Your core_path will change depending on whether your code is running on your development environment
+// or on a production environment (deployed via a Transport Package).  Make sure you follow the pattern
+// outlined here. See https://github.com/craftsmancoding/repoman/wiki/Conventions for more info
+$core_path = $modx->getOption('urlclean.core_path', null, MODX_CORE_PATH.'components/urlclean/');
+include_once $core_path .'/vendor/autoload.php';
+
 $settings = array();
 if(isset($input) && !is_null($input)){
 //options included, execute as output modifier
@@ -45,7 +57,7 @@ if(!isset($settings['url']) || is_null($settings['url'])){
 }
 
 if(!isset($settings['options']) || is_null($settings['options']) || $settings['options'] == ''){
-	$settings['options'] = -1;
+	$settings['options'] = $modx->getOption('link_tag_scheme');
 }
 
 

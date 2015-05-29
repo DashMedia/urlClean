@@ -1,0 +1,9 @@
+/**
+ * Sample CSS here.  Reference files in your package's assets folder using the special System Settings that MODX
+ * generates for you: [[++yourpackage.assets_url]]
+ * That way your code will work in development and when it has been installed on remote environments via Transport
+ * Package.  See https://github.com/craftsmancoding/repoman/wiki/Conventions for more info.
+ */
+.example_style_declaration {
+    font-weight: bold;
+}

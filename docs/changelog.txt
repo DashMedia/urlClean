@@ -1,0 +1,17 @@
+Changelog for urlClean
+
+urlClean 1.0.3-pl
+---------------------------------
+- use system default URL Generation Scheme when a Document ID is provided
+- move to repoman build system
+
+urlClean 1.0.2-pl
+---------------------------------
+- fix for newer versions of PHP (was causing errors when links started with '//')
+
+urlClean 1.0.1-pl
+---------------------------------
+-output modifier bug fix
+
+==urlClean 1.0.0-pl==
+-inital release

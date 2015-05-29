@@ -1,0 +1,32 @@
+{
+    "name": "DashMedia/urlClean",
+    "description": "",
+    "type": "modx-package",
+    "homepage": "https://github.com/DashMedia/urlClean",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Jason Carney",
+            "email": "jason@dashmedia.com.au",
+            "homepage" : "https://dashmedia.com.au/"
+        }        
+    ],
+    "support": {
+        "email": "https://dashmedia.com.au/",
+        "issues": "https://github.com/DashMedia/urlClean/issues",
+        "source": "https://github.com/DashMedia/urlClean.git"
+    },    
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "classmap":["model/"]
+    },
+    "extra": {
+        "package_name": "urlClean",
+        "namespace": "urlclean",
+        "version": "1.0.3",
+        "release": "pl",
+        "category":"urlClean"
+    }
+}
